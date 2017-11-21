@@ -1,5 +1,6 @@
 package Methodes;
 
+import com.kenai.jffi.PageManager;
 import org.aspectj.lang.annotation.Before;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -10,8 +11,14 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.util.concurrent.TimeUnit;
 
-public class BasePageLogin extends Object{
+public class BaseStep extends Object{
 
+
+    /*public BaseStep(PageManager pages) {
+        super();
+
+    }*/
+    @org.junit.Before
     public void Logining() {
         System.setProperty("webdriver.chrome.driver", "C:/Users/user/IdeaProjects/Aplana_OTPBank/drr/chromedriver.exe");
         ChromeOptions co = new ChromeOptions();
