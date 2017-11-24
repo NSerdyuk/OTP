@@ -6,77 +6,58 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class PageRegistration{
+public class PageRegistration extends BasePage {
 
-    public final String username ="PLCARDAGENTE69";
-    public final String passwords ="12345678";
-    public WebDriver driver;
+   // WebDriver driver;
 
-    @FindBy(id="s_swepi_1")
+    @FindBy(id = "s_swepi_1")
     public WebElement login;
 
-    @FindBy(id="s_swepi_2")
+    @FindBy(id = "s_swepi_2")
     public WebElement password;
 
-    @FindBy(id="s_swepi_22")
+    @FindBy(id = "s_swepi_22")
     public WebElement submitButton;
 
 
 
-   /* public PageRegistration (PageManager pages){
-        super(pages);
-    }*/
+    public PageRegistration(WebDriver driver) {
+        PageFactory.initElements(driver, this);
+        this.driver = driver;
+    }
 
-   public PageRegistration(WebDriver driver){
-       PageFactory.initElements(driver,this);
-       this.driver=driver;
-   }
+    public void setLogin(String username) {
 
-    public void   setLogin(String username) {
         login.sendKeys(username);
     }
 
 
-    public  void setPassword (String passwords){
+    public void setPassword(String passwords) {
         password.sendKeys(passwords);
 
     }
 
-    public void clickSubmitButton(){
+    public void clickSubmitButton() {
+
         submitButton.click();
+    }
+//конструктор
+    public void loginTo(String username, String passwords) {
+
+        this.setLogin(username);
+
+        this.setPassword(passwords);
+
+        this.clickSubmitButton();
     }
 
 
-
-
-
-    /*public void Log() {
-        pageRegistration.logon.click();
-
-    }*/
-
-
-
-
-
-  /* @FindBy(id="s_swepi_1")
-    public WebElement login;
-
-    public void Log(String value){
-        login.sendKeys(value);
-
-  /*public void Log () {
-   //Ввод логина
-    WebElement login =driver.findElement(By.id("s_swepi_1"));
-        login.sendKeys("PLCARDAGENTE69");
-
-    //Ввод пароля
-
-    WebElement password =driver.findElement(By.id("s_swepi_2"));
-        password.sendKeys("12345678");
-
-    //Подтверждение
-    WebElement logon = driver.findElement(By.id("s_swepi_22"));
-        logon.click();*/
-
 }
+
+
+
+
+
+
+
+
